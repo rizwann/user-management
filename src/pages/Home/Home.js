@@ -12,10 +12,9 @@ const Home = () => {
   }, [dispatch]);
 
   return (
-    <div className="home">
-      <h1>Dashboard</h1>
+    <>
       <Users />
-    </div>
+    </>
   );
 };
 

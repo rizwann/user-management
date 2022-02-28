@@ -1,11 +1,6 @@
-.home {
-  display: flex;
-  flex-direction: column;
-
-  height: 100vh;
-}
-
-.home h1 {
+.home-title {
+  margin-top: 16px;
   margin-left: 20px;
   font-family: "Ubuntu", sans-serif;
+  height: 60px;
 }
