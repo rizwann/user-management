@@ -1,0 +1,19 @@
+th {
+  font-size: large;
+  color: rgb(133, 99, 165);
+}
+.table-container {
+  margin: 20px;
+  padding: 10px;
+  margin-top: 65px;
+  -webkit-box-shadow: 5px 6px 14px 4px rgba(0, 0, 0, 0.43);
+  box-shadow: 5px 6px 14px 4px rgba(0, 0, 0, 0.43);
+  border-radius: 10px;
+}
+
+.table-header {
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
