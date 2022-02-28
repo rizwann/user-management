@@ -1,5 +1,7 @@
 import React from "react";
-import { Button } from "react-bootstrap";
+import { Button, Card } from "react-bootstrap";
+import Popup from "reactjs-popup";
+import "./User.css";
 
 const User = ({ user }) => {
   return (
@@ -25,9 +27,39 @@ const User = ({ user }) => {
       <td>
         <Button variant="warning">Edit</Button>
       </td>
-
       <td>
-        <Button variant="danger">Delete</Button>
+        <Popup
+          trigger={<Button variant="danger">Delete</Button>}
+          position="center center"
+          modal={true}
+          closeOnDocumentClick={true}
+          offsetY={50}
+          offsetX={-50}
+        >
+          {(close) => (
+            <Card>
+              <Card.Header as="h5">Delete</Card.Header>
+              <Card.Body>
+                <Card.Title>Do You Really Want to Delete This User?</Card.Title>
+                <Card.Text>
+                  Deletion of this user will delete all the posts and comments{" "}
+                  <br />
+                  associated with this user.
+                </Card.Text>
+                <Button
+                  variant="secondary"
+                  onClick={() => {
+                    close();
+                  }}
+                >
+                  Cancel
+                </Button>
+                &nbsp;
+                <Button variant="danger">Delete</Button>
+              </Card.Body>
+            </Card>
+          )}
+        </Popup>
       </td>
     </tr>
   );
