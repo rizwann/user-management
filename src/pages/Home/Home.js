@@ -1,5 +1,5 @@
 import React from "react";
-import UserForm from "../../components/Form/UserForm";
+
 import Users from "../../components/Users/Users";
 
 const Home = () => {
@@ -9,7 +9,6 @@ const Home = () => {
         <h1>Dashboard</h1>
       </div>
       <Users />
-      {/* <UserForm /> */}
     </>
   );
 };

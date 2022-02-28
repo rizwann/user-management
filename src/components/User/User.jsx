@@ -1,9 +1,17 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import Popup from "reactjs-popup";
 import "./User.css";
 
 const User = ({ user }) => {
+  const url = `https://jsonplaceholder.typicode.com/users/${user.id}`;
+
+  const handleDelete = () => {
+    fetch(url, {
+      method: "DELETE",
+    });
+  };
   return (
     <tr className="ubuntu">
       <td>{user.id}</td>
@@ -25,7 +33,9 @@ const User = ({ user }) => {
       </td> */}
 
       <td>
-        <Button variant="warning">Edit</Button>
+        <Link to={`edit-user/${user.id}`} className="nav-link">
+          <Button variant="warning">Edit</Button>
+        </Link>
       </td>
       <td>
         <Popup
@@ -55,7 +65,9 @@ const User = ({ user }) => {
                   Cancel
                 </Button>
                 &nbsp;
-                <Button variant="danger">Delete</Button>
+                <Button variant="danger" onClick={handleDelete}>
+                  Delete
+                </Button>
               </Card.Body>
             </Card>
           )}
