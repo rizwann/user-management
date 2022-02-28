@@ -1,40 +1,35 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { Link, useNavigate } from "react-router-dom";
 import Popup from "reactjs-popup";
+import { deleteUser } from "../../redux/actions/users";
 import "./User.css";
 
 const User = ({ user }) => {
-  const url = `https://jsonplaceholder.typicode.com/users/${user.id}`;
-
+  const dispatch = useDispatch();
+  let navigate = useNavigate();
   const handleDelete = () => {
-    fetch(url, {
-      method: "DELETE",
-    }).then(() => console.log(`User with username ${user.name} deleted`));
+    dispatch(deleteUser(user.id));
+    navigate("/");
   };
+
+  const id = user?.id.toString().slice(0, 3);
   return (
     <tr className="ubuntu">
-      <td>{user.id}</td>
+      <td>{id}</td>
       <td>{user.name}</td>
       <td>{user.username}</td>
       <td>{user.email}</td>
-      <td>{user?.address.city}</td>
-      {/* 
-      <td>
-        <Link to={`/user/${country.name?.common}`} className="nav-link">
-        <Button
-          variant="outline-info"
-          size="sm"
-          onClick={() => dispatch(resetKeyword())}
-        >
-          More Info
-        </Button>
-      </Link>
-      </td> */}
+      <td>{user.city}</td>
 
       <td>
-        <Link to={`edit-user/${user.id}`} className="nav-link">
-          <Button variant="warning">Edit</Button>
+        <Link
+          to={`edit-user/${user.id}`}
+          className="nav-link btn btn-warning"
+          style={{ color: "white" }}
+        >
+          Edit
         </Link>
       </td>
       <td>
@@ -43,8 +38,6 @@ const User = ({ user }) => {
           position="center center"
           modal={true}
           closeOnDocumentClick={true}
-          offsetY={50}
-          offsetX={-50}
         >
           {(close) => (
             <Card>

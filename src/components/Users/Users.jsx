@@ -1,23 +1,14 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Button, Table } from "react-bootstrap";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
+
 import User from "../User/User";
 import "./Users.css";
 
 const Users = () => {
-  const [users, setUsers] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      const result = await fetch(
-        "https://my-json-server.typicode.com/karolkproexe/jsonplaceholderdb/data"
-      );
-      const data = await result.json();
-      setUsers(data);
-    };
-    fetchData();
-  }, []);
-
+  const users = useSelector((state) => state.usersReducer.updatedUsers);
+  console.log(users);
   return (
     <div className="users">
       {users.length > 0 ? (
