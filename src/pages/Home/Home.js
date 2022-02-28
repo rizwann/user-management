@@ -4,12 +4,10 @@ import Users from "../../components/Users/Users";
 
 const Home = () => {
   return (
-    <>
-      <div>
-        <h1>Dashboard</h1>
-      </div>
+    <div className="home">
+      <h1>Dashboard</h1>
       <Users />
-    </>
+    </div>
   );
 };
 

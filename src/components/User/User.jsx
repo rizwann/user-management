@@ -10,7 +10,7 @@ const User = ({ user }) => {
   const handleDelete = () => {
     fetch(url, {
       method: "DELETE",
-    });
+    }).then(() => console.log(`User with username ${user.name} deleted`));
   };
   return (
     <tr className="ubuntu">
@@ -65,7 +65,13 @@ const User = ({ user }) => {
                   Cancel
                 </Button>
                 &nbsp;
-                <Button variant="danger" onClick={handleDelete}>
+                <Button
+                  variant="danger"
+                  onClick={() => {
+                    handleDelete();
+                    close();
+                  }}
+                >
                   Delete
                 </Button>
               </Card.Body>
