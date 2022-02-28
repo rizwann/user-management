@@ -1,11 +1,10 @@
 th {
-  font-size: large;
-  color: rgb(133, 99, 165);
+  color: rgb(22, 21, 22);
 }
 .table-container {
   margin: 20px;
   padding: 10px;
-  margin-top: 65px;
+  margin-top: 40px;
   -webkit-box-shadow: 5px 6px 14px 4px rgba(0, 0, 0, 0.43);
   box-shadow: 5px 6px 14px 4px rgba(0, 0, 0, 0.43);
   border-radius: 10px;
@@ -16,4 +15,12 @@ th {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  border-bottom: 1px solid rgb(241, 235, 235);
+}
+
+.no-data {
+  margin-top: 20px;
+  text-align: center;
+  font-size: large;
+  color: rgb(133, 99, 165);
 }

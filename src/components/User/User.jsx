@@ -1,17 +1,18 @@
 import React from "react";
 import { Button, Card } from "react-bootstrap";
 import { useDispatch } from "react-redux";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
+
 import Popup from "reactjs-popup";
+
 import { deleteUser } from "../../redux/actions/users";
 import "./User.css";
 
 const User = ({ user }) => {
   const dispatch = useDispatch();
-  let navigate = useNavigate();
+
   const handleDelete = () => {
     dispatch(deleteUser(user.id));
-    navigate("/");
   };
 
   const id = user?.id.toString().slice(0, 3);
@@ -43,11 +44,13 @@ const User = ({ user }) => {
             <Card>
               <Card.Header as="h5">Delete</Card.Header>
               <Card.Body>
-                <Card.Title>Do You Really Want to Delete This User?</Card.Title>
+                <Card.Title>
+                  Do You Really Want to Delete user &nbsp;
+                  <i>{user.username}</i> ?
+                </Card.Title>
                 <Card.Text>
-                  Deletion of this user will delete all the posts and comments{" "}
-                  <br />
-                  associated with this user.
+                  Deletion will destroy all the posts and comments <br />
+                  associated with <b>{user.username}</b>.
                 </Card.Text>
                 <Button
                   variant="secondary"
@@ -57,7 +60,7 @@ const User = ({ user }) => {
                 >
                   Cancel
                 </Button>
-                &nbsp;
+                &nbsp; &nbsp;
                 <Button
                   variant="danger"
                   onClick={() => {

@@ -1,6 +1,7 @@
 const initialState = {
   users: [],
   updatedUsers: [],
+  sort: "",
 };
 
 export default function usersReducer(state = initialState, action) {
@@ -22,21 +23,23 @@ export default function usersReducer(state = initialState, action) {
               })
             : state.updatedUsers,
       };
+
     case "ADD_USER":
       return {
         ...state,
         updatedUsers: [...state.updatedUsers, action.payload.user],
       };
+
     case "EDIT_USER":
       return {
         ...state,
         updatedUsers: state.updatedUsers.map((user) => {
           if (user.id === action.payload.user.id) {
             const editedUser = {
+              ...user,
               name: action.payload.user.name,
               email: action.payload.user.email,
-              city: action.payload.user.city,
-              username: action.payload.user.username,
+
               id: action.payload.user.id,
             };
             return editedUser;
@@ -44,6 +47,7 @@ export default function usersReducer(state = initialState, action) {
           return user;
         }),
       };
+
     case "DELETE_USER":
       return {
         ...state,

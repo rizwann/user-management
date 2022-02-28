@@ -1,5 +1,7 @@
 label {
-  margin-right: 50px;
+  margin-right: 10%;
+  display: inline-block;
+  width: 30%;
 }
 
 .form-container {
@@ -17,11 +19,12 @@ label {
   justify-content: space-between;
   align-items: center;
 }
-form {
-  display: flex;
-  flex-direction: column;
+.form {
   align-items: center;
   justify-content: center;
+  width: 60%;
+  margin-top: 60px;
+  margin-left: 20%;
 }
 .name,
 .email,
@@ -30,18 +33,14 @@ form {
   margin-bottom: 10px;
 }
 
-label {
-  display: inline-block;
-  width: 180px;
+input {
+  width: 60%;
+  outline: none;
 }
-
 .btn-container {
-  display: flex;
-  justify-content: flex-end;
-  padding: 10px;
-  align-items: center;
+  text-align: right;
 }
-
 .btn-container button {
-  margin-right: 10px;
+  margin-left: 10px;
+  width: 100px;
 }
