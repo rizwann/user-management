@@ -8,8 +8,8 @@ const Home = () => {
       <div>
         <h1>Dashboard</h1>
       </div>
-      {/* <Users /> */}
-      <UserForm />
+      <Users />
+      {/* <UserForm /> */}
     </>
   );
 };
