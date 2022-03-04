@@ -44,3 +44,22 @@ input {
   margin-left: 10px;
   width: 100px;
 }
+
+@media (max-width: 656px) {
+  .btn-container button {
+    margin-bottom: 10px;
+    width: 80px;
+  }
+}
+
+@media (max-width: 486px) {
+  .btn-container button {
+    margin-bottom: 7px;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: flex-end;
+  }
+}
