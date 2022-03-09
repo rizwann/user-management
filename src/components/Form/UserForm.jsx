@@ -81,7 +81,7 @@ const UserForm = ({ variant }) => {
             {...register("name", { required: "Name is Required" })}
             size={50}
             onChange={(e) => setName(e.target.value)}
-            placeholder={name}
+            value={name}
           />
           <p style={{ color: "red", marginLeft: "40%" }}>
             {errors.name?.message}
@@ -95,7 +95,7 @@ const UserForm = ({ variant }) => {
             {...register("email", { required: "Email is Required" })}
             size={50}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder={email}
+            value={email}
           />
           <p style={{ color: "red", marginLeft: "40%" }}>
             {errors.email?.message}
